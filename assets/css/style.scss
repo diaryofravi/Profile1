@@ -1,0 +1,306 @@
+---
+---
+
+@import "minima";
+
+/* =============================================================
+   APPLE-STYLE TYPOGRAPHY SYSTEM
+   Uniform across ALL pages — home, stories, gallery, lounge
+   Based on Apple's SF Pro font stack & typographic scale
+   Place this file at: assets/css/style.scss in your repo
+   ============================================================= */
+
+/* ── 1. FONT STACK (SF Pro — Apple's exact system font) ────── */
+
+:root {
+  --font-sans: -apple-system, "SF Pro Text", BlinkMacSystemFont,
+               "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont,
+                  "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Apple type scale */
+  --text-xs:   0.75rem;    /* 12px — captions, meta */
+  --text-sm:   0.8125rem;  /* 13px — footnotes */
+  --text-base: 1.0625rem;  /* 17px — body (Apple standard) */
+  --text-md:   1.1875rem;  /* 19px — lead paragraph */
+  --text-lg:   1.3125rem;  /* 21px — h4 */
+  --text-xl:   1.5rem;     /* 24px — h3 */
+  --text-2xl:  1.75rem;    /* 28px — h2 */
+  --text-3xl:  2.125rem;   /* 34px — h1 */
+  --text-4xl:  2.625rem;   /* 42px — page hero */
+
+  /* Weights */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* Line heights */
+  --leading-tight:  1.2;
+  --leading-snug:   1.35;
+  --leading-normal: 1.6;
+  --leading-loose:  1.75;
+
+  /* Letter spacing (Apple uses tight tracking on large type) */
+  --tracking-tight:  -0.022em;
+  --tracking-snug:   -0.012em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.016em;
+}
+
+
+/* ── 2. BASE / BODY ─────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* rem base */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family:    var(--font-sans);
+  font-size:      var(--text-base);   /* 17px */
+  font-weight:    var(--weight-regular);
+  line-height:    var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+  -webkit-font-smoothing:  antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+
+/* ── 3. HEADINGS ────────────────────────────────────────────── */
+/* Single definition — applies everywhere: posts, pages, index  */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family:    var(--font-display);
+  font-weight:    var(--weight-semibold);
+  line-height:    var(--leading-snug);
+  margin-top:     0;
+  margin-bottom:  0.5em;
+}
+
+h1 {
+  font-size:      var(--text-3xl);     /* 34px */
+  letter-spacing: var(--tracking-tight);
+  font-weight:    var(--weight-bold);
+}
+
+h2 {
+  font-size:      var(--text-2xl);     /* 28px */
+  letter-spacing: var(--tracking-snug);
+}
+
+h3 {
+  font-size:      var(--text-xl);      /* 24px */
+  letter-spacing: var(--tracking-snug);
+}
+
+h4 {
+  font-size:      var(--text-lg);      /* 21px */
+  letter-spacing: var(--tracking-normal);
+}
+
+h5 {
+  font-size:      var(--text-base);    /* 17px */
+  letter-spacing: var(--tracking-normal);
+}
+
+h6 {
+  font-size:      var(--text-sm);      /* 13px */
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+
+/* ── 4. BODY TEXT ELEMENTS ──────────────────────────────────── */
+
+p {
+  font-size:   var(--text-base);       /* 17px */
+  line-height: var(--leading-normal);  /* 1.6  */
+  margin-top:  0;
+  margin-bottom: 1.25em;
+}
+
+/* Lead paragraph — first <p> after h1 or in .lead */
+.post-content > p:first-of-type,
+.page-content > p:first-of-type,
+.lead {
+  font-size:   var(--text-md);         /* 19px */
+  line-height: var(--leading-loose);
+  font-weight: var(--weight-regular);
+  letter-spacing: -0.003em;
+}
+
+/* Lists */
+ul, ol {
+  font-size:   var(--text-base);
+  line-height: var(--leading-normal);
+  padding-left: 1.5em;
+  margin-bottom: 1.25em;
+}
+
+li {
+  margin-bottom: 0.35em;
+}
+
+/* Blockquotes */
+blockquote {
+  font-size:      var(--text-md);      /* 19px */
+  font-style:     italic;
+  font-weight:    var(--weight-regular);
+  line-height:    var(--leading-loose);
+  letter-spacing: -0.003em;
+  border-left-width: 3px;
+  padding-left: 1.25em;
+  margin-left: 0;
+}
+
+/* Inline code */
+code {
+  font-size: 0.9em;
+}
+
+/* Small text, captions */
+small,
+figcaption,
+.caption,
+time {
+  font-size:      var(--text-xs);      /* 12px */
+  letter-spacing: var(--tracking-wide);
+}
+
+
+/* ── 5. NAVIGATION ──────────────────────────────────────────── */
+
+.site-nav,
+.site-nav .page-link {
+  font-family:    var(--font-sans);
+  font-size:      var(--text-sm);      /* 13px — Apple nav style */
+  font-weight:    var(--weight-medium);
+  letter-spacing: var(--tracking-normal);
+}
+
+.site-title {
+  font-family:    var(--font-display);
+  font-size:      1.125rem;            /* 18px */
+  font-weight:    var(--weight-semibold);
+  letter-spacing: var(--tracking-snug);
+}
+
+
+/* ── 6. POST / PAGE TITLES ──────────────────────────────────── */
+
+.post-title,
+.post-title a,
+.page-heading {
+  font-family:    var(--font-display);
+  font-size:      var(--text-3xl);     /* 34px */
+  font-weight:    var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height:    var(--leading-tight);
+}
+
+/* Post list titles (stories index) */
+.post-list h3,
+.post-list .post-link {
+  font-size:      var(--text-xl);      /* 24px */
+  font-weight:    var(--weight-semibold);
+  letter-spacing: var(--tracking-snug);
+}
+
+/* Post meta — date, category */
+.post-meta,
+.post-date {
+  font-size:      var(--text-xs);      /* 12px */
+  font-weight:    var(--weight-regular);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* Excerpt / post snippet */
+.post-excerpt,
+.post-list p {
+  font-size:   var(--text-base);
+  line-height: var(--leading-normal);
+}
+
+
+/* ── 7. GALLERY PAGE ────────────────────────────────────────── */
+
+.gallery-title,
+.gallery h2 {
+  font-size:      var(--text-2xl);
+  font-weight:    var(--weight-semibold);
+  letter-spacing: var(--tracking-snug);
+}
+
+.gallery-caption,
+.gallery figcaption {
+  font-size:      var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+}
+
+
+/* ── 8. FOOTER ──────────────────────────────────────────────── */
+
+.site-footer,
+.site-footer p,
+.site-footer a,
+.footer-heading {
+  font-family: var(--font-sans);
+  font-size:   var(--text-xs);         /* 12px — Apple footer style */
+  line-height: var(--leading-normal);
+}
+
+.footer-heading {
+  font-weight:    var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+
+/* ── 9. DARK MODE — preserve Apple style in dark theme ──────── */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+
+/* ── 10. RESPONSIVE SCALING ─────────────────────────────────── */
+/* Apple scales headings down gracefully on mobile              */
+
+@media (max-width: 600px) {
+  h1,
+  .post-title,
+  .page-heading {
+    font-size: var(--text-2xl);        /* 28px on mobile */
+    letter-spacing: var(--tracking-snug);
+  }
+
+  h2 {
+    font-size: var(--text-xl);         /* 24px on mobile */
+  }
+
+  h3 {
+    font-size: var(--text-lg);         /* 21px on mobile */
+  }
+
+  body,
+  p {
+    font-size: 1rem;                   /* 16px on mobile */
+  }
+
+  .post-list h3,
+  .post-list .post-link {
+    font-size: var(--text-lg);
+  }
+}
